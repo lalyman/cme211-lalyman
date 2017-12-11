@@ -2,7 +2,7 @@ import numpy as np
 import os.path
 import sys
 
-# Provide usage message
+# Provide Usage message
 if len(sys.argv) != 3:
     print('Usage:')
     print('  python3 %s <maze file> <solution file>'% sys.argv[0])
@@ -34,8 +34,8 @@ if os.path.isfile(soln_file) is False:
 
 # Read the maze file and store the data
 with open(maze_file,'r') as f:
-    # Use first line to get number of rows
-    # and columns
+      # Use first line to get number of rows
+      # and columns
     dimensions = f.readline()
     dimensions = dimensions.split()
     num_rows = int(dimensions[0])
@@ -70,12 +70,12 @@ with open(soln_file,'r') as f:
     first_row = int(first_pos[0])
     first_col = int(first_pos[1])
     soln_data.append([first_row,first_col])
-    # Check if maze was properly entered on the first row
+    # Check if maze was properly entered on the first row    
     if first_row != 0 or first_col != entrance:
         print(bad_entrance)
         sys.exit(0)
-        # Iterate through the rest of the positions in the
-        # solution file
+    # Iterate through the rest of the positions in the
+    # solution file
     for line in f:
         line = line.split()
         row = int(line[0])
@@ -113,3 +113,4 @@ for i in range(len(soln_data)-1):
         sys.exit(0)
 # If no error was thrown by now, the solution must be valid
 print('Solution is valid!')
+
