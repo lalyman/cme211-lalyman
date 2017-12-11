@@ -58,10 +58,11 @@ using std::tuple;
 // 'W','S'
 // ---- if you just moved east ('E'), your priorities are: 'S','E',
 // 'N','W'
+// -- the above logic is repeated until maze is exited (which is checked
+// by being in the last row)
 //
 //
-// BEGIN HELPER FUNCTIONS ////
-
+// BEGIN HELPER FUNCTIONS //
 tuple <int**,int> update_soln(tuple <int**,int> soln_tuple,
     int current_row, int current_col){
     // Helper function 'update_soln' records the move just
@@ -115,7 +116,7 @@ int a[num_rows_avail][num_cols_avail]){
     a[current_row][current_col-1] == 0;
     return can_go_west;
 }
-// END HELPER FUNCTIONS ////
+// END HELPER FUNCTIONS //
 
 int main(int argc, char *argv[]){
     // Initializes the number of rows/columns in the maze to the
