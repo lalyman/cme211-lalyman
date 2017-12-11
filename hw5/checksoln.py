@@ -44,7 +44,7 @@ with open(maze_file,'r') as f:
     # Will add 1s to indicate presence of a wall
     # (Instructions said to use numpty array)
     maze_data = np.zeros((num_rows,num_cols))
-	# Iterate through the maze file and
+    # Iterate through the maze file and
     # store wall positions in 'maze_data'
     for line in f:
         line = line.split()
