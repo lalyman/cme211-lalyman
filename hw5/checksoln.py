@@ -2,7 +2,7 @@ import numpy as np
 import os.path
 import sys
 
-# Provide Usage message
+# Provide usage message
 if len(sys.argv) != 3:
     print('Usage:')
     print('  python3 %s <maze file> <solution file>'% sys.argv[0])
