@@ -1,2 +1,2 @@
-# cme211-lalyman
-All CME 211 Coursework
+#CME 211 Homework
+This repository contains homework assignments for CME 211.
