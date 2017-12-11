@@ -123,7 +123,7 @@ int main(int argc, char *argv[]){
     // maximum possible given storage constraints
     int num_rows = num_rows_avail;
     int num_cols = num_cols_avail;
-    // Provides Usage statement for user
+    // Provides usage statement for user
     if (argc != 3){
         cout << "Usage: "<< endl;
         cout << " " << argv[0] << " <maze file> <solution file>" << endl;
