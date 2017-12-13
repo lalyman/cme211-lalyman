@@ -27,6 +27,10 @@ illegal_move = "ERROR: The solution file moves more than one " + \
 
 # Check if user-inputted files are there
 
+if os.path.isfile(maze_file) is False:
+    print(maze_file_not_found)
+    sys.exit(0)
+
 if os.path.isfile(soln_file) is False:
     print(soln_file_not_found)
     sys.exit(0)
