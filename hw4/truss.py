@@ -1,11 +1,7 @@
-import copy
-import glob
 import math
 import matplotlib.pyplot as plt
-import numpy
 import scipy.sparse
 import scipy.sparse.linalg
-import sys
 
 class Truss:
     """Returns a data table of forces from each beam.
@@ -20,12 +16,12 @@ class Truss:
     a singular matrix or non-square matrix) the class
     returns an error with an explanation.
 
-    Also, if the user inputs an (optional) file path,
-    the code creates a figure of the truss system and
-    saves it in that file path location; that is, the
-    figure has a picture of the joints and the beams
-    connecting them, regardless of whether the
+    Also, the code creates a figure of the truss system;
+    that is, the figure has a picture of the joints and 
+    the beams connecting them, regardless of whether the
     corresponding matrix equation has a solution.
+    The user can input an (optional) file path, and the code
+    saves the figure in that file path location.
     """
     def __init__(self,joints_file,beams_file,plot_file):
         """Initializes the class and its methods.
@@ -33,10 +29,12 @@ class Truss:
         Gives the Truss class attributes 'joints_file'
         and 'beams_file' from the user-inputted data
         files. Also gives the Truss class a 'plot_file'
-        attribute, which is where the plot should be
-        saved if the user specifies a file path and
-        is an empty string otherwise. Then the class
-        methods are initialized."""
+        attribute, which is the plot's name/where it
+        should be saved if the user specifies a file path;
+        if no file path is specified, the plot is is named
+        "figure" by default and saved in the working
+        directory. otherwise. Then the class methods
+        are initialized."""
         self.joints_file = str(joints_file)
         self.beams_file = str(beams_file)
         self.plot_file = str(plot_file)

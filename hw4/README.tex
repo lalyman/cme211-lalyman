@@ -127,7 +127,7 @@
 \section{Code Description} The class \texttt{Truss} returns a data table of the net force acting on each beam. That is, this class creates a system of linear equations by balancing the $x$ and $y$ forces acting on each joint, where the forces provided
 by the beams are variables. Then the class solves this system of equations to determine each beam force and outputs the results in a data table. If the system cannot be solved (i.e. there is a singular matrix or non-square matrix) the class returns an error with an explanation.
 
-Also, if the user inputs an (optional) file name, the code creates a figure of the truss system and saves it as that name. (If no directory is included in part of the file name, the default is to save the plot as the given name in the current directory.) Each figure is a picture of the corresponding joints/beam system, regardless of whether the associated matrix equation has a solution.
+Also, if the user inputs an (optional) file name, the code creates a figure of the truss system and saves it as that name. If no directory is included in part of the file name, the default is to save the plot as the given name in the current directory. If no plot name is provided, the plot is saved with the default name ``figure" with the default extension `.png' in the working directory. Each figure is a picture of the corresponding joints/beam system, regardless of whether the associated matrix equation has a solution.
 
 Specifically, here is a description of some of the methods in the Truss class.
 \\ \\
@@ -139,7 +139,8 @@ Specifically, here is a description of some of the methods in the Truss class.
 \text{and \texttt{beams\_file} from the user-inputted data files. Also gives the Truss class a \texttt{plot\_file} attribute, } \\
       \text{which is where the plot should be
         saved/what to name the plot if the user specifies a file } \\
-        \text{path; otherwise \texttt{plot\_file} is an empty string. Then the class
+        \text{path; otherwise \texttt{plot\_file} is given the default name \texttt{figure.pdf} and saved in the working directory.} \\
+         \text{Then the class
         methods are initialized.} \\ \hline \hline
 %\text{if the user entered no plot name, \texttt{plot\_file} is an empty string.}   \\ \hline \hline
 \text{Class Method: } \texttt{get\_beam\_data(self,beams\_file) } \\
@@ -249,7 +250,7 @@ ERROR: Directory `truss10' not found.
 $ python3 main.py truss1/joints.dat truss1/beams.dat /truss5/fig
 ERROR: Make sure `/truss5/fig' does not start or end with a `/' character.
 \end{Verbatim}
-Finally we need to verify that you can actually specify a plot file name and have the plot saved accordingly. If you have a certain directory in the plot file name (that is valid), we will check that the plot is actually saved there. If no directory is specified (i.e. the user just says ``fig1"), we will check that the plot is saved as ``fig1" in the current directory. Note that if no extension is provided by the user for the plot, the plot is saved as a `.png' by default. Finally, we should ensure that tables are still working/outputting correctly now that a plot file has been provided.
+Finally we need to verify that you can actually specify a plot file name and have the plot saved accordingly. If you have a certain directory in the plot file name (that is valid), we will check that the plot is actually saved there. If no directory is specified (i.e. the user just says ``fig1"), we will check that the plot is saved as ``fig1" in the current directory. Note that if no extension is provided by the user for the plot, then the plot is saved as a `.png' by default. If the user does not input a plot file, we should verify that the plot is saved with the default name ``figure" in the working directory. Finally, we should ensure that tables are still working/outputting correctly when a plot file has been provided.
 \begin{Verbatim}[fontsize=\small]
 $ python3 main.py truss2/joints.dat truss2/beams.dat testfig2
  Beam       Force
@@ -269,7 +270,16 @@ README.aux	 main.py
 README.log	 truss.py	
 README.out	 truss1
 README.pdf	 truss2
-
+$ python3 main.py truss2/joints.dat truss2/beams.dat
+$ ls
+Figure1.pdf        README.synctex.gz       truss2				
+Figure2.pdf        README.tex              testfig2.png
+Figure3.pdf        README.toc              truss3
+Figure4.pdf        cme211-hw4.pdf	  truss4
+README.aux	 figure.png 		
+README.log	 main.py 	
+README.out	 truss.py 
+README.pdf	 truss1
 $ python3 main.py truss1/joints.dat truss1/beams.dat truss1/testfig.pdf
  Beam       Force
 -----------------

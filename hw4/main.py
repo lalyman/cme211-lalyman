@@ -39,10 +39,12 @@ if bad_format(joints_file) or bad_format(beams_file):
 if file_not_found(joints_file) or file_not_found(beams_file):
     sys.exit(0)
 
-# Handles when user does not submit the (optional) plot file
+# Handles when user does not submit the (optional) plot file name
+# Just sets the name of the plot to be "figure.pdf" and saves it in
+# the working directory
 if len(sys.argv) == 3:
     try:
-        t = truss.Truss(joints_file,beams_file,"")
+        t = truss.Truss(joints_file,beams_file,"figure")
     except RuntimeError as e:
         print('ERROR: {}'.format(e))
         sys.exit(2)
