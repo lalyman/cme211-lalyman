@@ -4,10 +4,10 @@
 #include <tuple>
 using std::cout;
 using std::endl;
-using std::ifstream;
-using std::ofstream;
 using std::get;
+using std::ifstream;
 using std::make_tuple;
+using std::ofstream;
 using std::string;
 using std::tuple;
 // Define constants to size static array
@@ -49,9 +49,9 @@ using std::tuple;
 // just moved. the following logic is used to obey the right hand rule:
 // ---- if you just moved south ('S'), your priorities are: 'W' (west),
 // 'S' (south), 'E' (east), 'N' (north) for which direction to go next.
-// That is, go one unit west if you can, try going one unit south if you
-// cannot go west, then try going one unit east if you can't go west or
-// south, and finally go north as a last resort
+// That is, go one unit west if you can, try going one unit south if
+// you cannot go west, then try going one unit east if you can't go
+// west or south, and finally go north as a last resort
 // ---- if you just moved west ('W'), your priorities are: 'N', 'W',
 // 'S','E'
 // ---- if you just moved north ('N'), your priorities are 'E', 'N',
@@ -399,4 +399,3 @@ int main(int argc, char *argv[]){
     // Finally exits the program
     return 0;
 }
-

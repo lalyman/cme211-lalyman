@@ -12,7 +12,8 @@ maze_file = str(sys.argv[1])
 soln_file = str(sys.argv[2])
 
 # Error messages for inputted files
-maze_file_not_found = "ERROR: The maze file '%s' was not found."% maze_file
+maze_file_not_found = "ERROR: The maze file '%s' was not found." \
+% maze_file
 soln_file_not_found = "ERROR: The solution file '%s' was not found."\
 % soln_file
 # Error messages for incorrect solution
@@ -25,9 +26,7 @@ illegal_move = "ERROR: The solution file moves more than one " + \
 "east, or west per move."
 
 # Check if user-inputted files are there
-if os.path.isfile(maze_file) is False:
-    print(maze_file_not_found)
-    sys.exit(0)
+
 if os.path.isfile(soln_file) is False:
     print(soln_file_not_found)
     sys.exit(0)
@@ -84,7 +83,7 @@ with open(soln_file,'r') as f:
         # Check if you went out of the bounds of the maze
         if row >= num_rows or col >= num_cols or \
         row < 0 or col < 0:
-            out_of_bounds = "ERROR: The solution file has an entry " + \
+            out_of_bounds = "ERROR: The solution file has an entry "+ \
             "(%s,%s) that is out of the maze boundaries." %(row, col)
             print(out_of_bounds)
             sys.exit(0)
@@ -113,4 +112,3 @@ for i in range(len(soln_data)-1):
         sys.exit(0)
 # If no error was thrown by now, the solution must be valid
 print('Solution is valid!')
-
