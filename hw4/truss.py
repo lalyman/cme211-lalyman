@@ -1,5 +1,7 @@
 import math
-import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pylab as plt
 import scipy.sparse
 import scipy.sparse.linalg
 
@@ -193,9 +195,9 @@ class Truss:
         # There is one variable per beam. Also, there are two
         # additional variables per attached joint representing
         # the force of attachment in the x and y directions.
-        number_of_vars = self.number_of_beams + 2*number_attached_joints
+        self.number_of_vars = self.number_of_beams + 2*number_attached_joints
         # Check if matrix is not square
-        if number_of_vars != self.number_of_eqns:
+        if self.number_of_vars != self.number_of_eqns:
             raise RuntimeError(not_square_error)
 
     def update_CSR_arrays(self,joint,beams_attached,val_array,col_array,
@@ -230,8 +232,8 @@ class Truss:
 
     def get_beam_eqn(self):
 
-        val_array = list()
-        col_array = list()
+        val_array = []
+        col_array = []
         # CSR row array always starts with a zero
         row_array = [0]
         number_of_attached = 0
